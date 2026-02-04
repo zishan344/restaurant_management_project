@@ -3,7 +3,7 @@ from django.db import models
 
 class OrderStatus(models.Model):
     # Defining choices for order status
-    statuses = [
+    STATUSES = [
         ('PENDING','pending'),
         ('PROCESSING','processing'),
         ('COMPLETED','completed'),
@@ -12,9 +12,9 @@ class OrderStatus(models.Model):
     name = models.CharField(
         max_length=50,
         unique=True,
-        choice=statuses,
+        choices=STATUSES,
         default='PENDING',
-        verbose_name="StatusName"
+        verbose_name="Status Name"
     )
     # string represent
     def __str__(self):
