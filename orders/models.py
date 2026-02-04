@@ -20,6 +20,7 @@ class OrderStatus(models.Model):
     def __str__(self):
         return self.name
 
+
 class Order(models.Model):
     status = models.ForeignKey(
         OrderStatus,
@@ -31,7 +32,7 @@ class Order(models.Model):
             verbose_name="Created At"
         )
         updated_at = models.DateTimeField(
-            auto_now_add=True,
+            auto_now=True,
             verbose_name="Updated At"
         )
         def __str__(self):
