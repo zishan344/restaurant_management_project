@@ -1,9 +1,21 @@
 from django.db import models
+from random import choice
 # Create your models here.
-# Menue category mdoel for food menu
-class MenuCategory(models.Model):
-    name = models.CharField(max_length=255, unique=True, verbose_name="CategoryName")
-    
+
+class OrderStatus(models.Model):
+    # Defining choices for order status
+    statuses = [
+        ('PENDING','pending'),
+        ('PROCESSING','processing'),
+        ('COMPLETED','completed'),
+        ('CANCELLED','cancelled'),
+    ]
+    name = models.CharField(
+        max_length=50,
+        unique=True, 
+        choices=statuses,
+        default='PENDING',
+        verbose_name="StatusName")
     # string represent
     def __str__(self):
         return self.name
