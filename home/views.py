@@ -1,4 +1,3 @@
-
 from rest_framework import generics
 from home.serializers import MenuCategorySerializer
 from home.models import MenuCategory
