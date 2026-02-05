@@ -3,6 +3,6 @@ from home.serializers import MenuCategorySerializer
 from home.models import MenuCategory
 # Create your views here.
 
-class MenuCategoryView(generics.ListApiView):
+class MenuCategoryView(generics.ListAPIView):
     queryset = MenuCategory.objects.all()
     serializer_class = MenuCategorySerializer
