@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.ApiView import ApiView
+from rest_framework import ApiView
 from rest_framework.response import Response
 from orders.models import Coupon
 from orders.utils import validateDate
