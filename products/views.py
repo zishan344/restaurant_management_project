@@ -3,23 +3,25 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import Item
-from .serializers import ItemSerializer
+from .models import MenuItemView
+from .serializers import MenuItemSerializer
 
 '''
 NOTE: Conside this as a reference and follow this same coding structure or format to work on you tasks
 '''
 
-# Create your views here.
-class ItemView(APIView):
 
+
+# Create your views here.
+class MenuItemView(APIView):
+    ''' Menu Item view '''
     def get(self, request):
-        items = Item.objects.all()
-        serializer = ItemSerializer(items, many=True)
+        items = MenuItem.objects.all()
+        serializer = MenuItemSerializer(MenuItem, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = ItemSerializer(data=request.data)
+        serializer = MenuItemSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
