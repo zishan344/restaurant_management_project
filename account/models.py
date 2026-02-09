@@ -1,16 +1,16 @@
 from django.db import models
 
 # Create your models here.
-class Restaurant(models.Model):
+class Restaurants(models.Model):
     name = models.CharField(
         max_length=100,
         verbose_name="Restaurant_Name"
     )
     owner_name = models.EmailField(
-        max_length=250,
+        max_length=100,
         verbose_name="Email"
     )
-    ponoe_number = models.CharField(
+    phone_number = models.CharField(
         max_length=50,
         verbose_name="Contact_Number"
     )
@@ -23,11 +23,11 @@ class Restaurant(models.Model):
     )
     has_delivery = models.BooleanField(
         default=True,
-        verbose_name="delivery_service_availability"
+        verbose_name="Delivery_Service_Availability"
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
-        verbose_name="created_time"
+        verbose_name="Created_Time"
     )
 
     class Meta:
